@@ -23,10 +23,10 @@ function App() {
       console.log('Enter was pressed', newFinalUrl, event.target.value);
     }
   }
-  
+
   // const getByLocation = async () => {
   //   setLoading(true)
-  
+
   //   try {
   //     await axios.get(finalUrl).then((response) => {
   //       setData(response.data)
@@ -35,7 +35,7 @@ function App() {
   //   } catch (e) {
   //     console.log(e)
   //   }
-  
+
   //   setLoading(false)
   // }
 
@@ -43,17 +43,17 @@ function App() {
     navigator.geolocation.getCurrentPosition(function (position) {
       console.log("Latitude is :", position.coords.latitude);
       console.log("Longitude is :", position.coords.longitude);
-      
+
       const coordinates = `lat=${position.coords.latitude}&lon=${position.coords.longitude}`
       const newFinalUrl = url + coordinates + appId
-      
+
       setFinalUrl(newFinalUrl)
     })
   }
 
   useEffect(() => {
-    console.log('Final url updated', finalUrl)
-    getByLocation(setLoading, finalUrl, setFinalUrl)
+    console.log('Final url updated', { finalUrl })
+    finalUrl && getByLocation(setLoading, finalUrl, setData)
   }, [finalUrl])
   // useEffect(() => {
   //   getByLocation()
