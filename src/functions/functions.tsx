@@ -1,12 +1,10 @@
-import axios from "axios"
-
-export const getByLocation = async (setLoading, finalUrl, setData) => {
+export const getByLocation = (setLoading, finalUrl, setData) => {
     setLoading(true)
 
     try {
-        await axios.get(finalUrl).then((response) => {
-            setData(response.data)
-            console.log('Resposta', response.data)
+        fetch(finalUrl).then((response) => {
+            //setData(response.)
+            console.log('Resposta', response.json())
         })
     } catch (e) {
         console.log(e)

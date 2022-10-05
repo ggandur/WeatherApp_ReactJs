@@ -1,0 +1,44 @@
+{
+    "coord": {
+        "lon": -45.4528,
+        "lat": -22.4256
+    },
+    "weather": [
+        {
+            "id": 804,
+            "main": "Clouds",
+            "description": "overcast clouds",
+            "icon": "04d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 297.46,
+        "feels_like": 297.85,
+        "temp_min": 297.46,
+        "temp_max": 297.46,
+        "pressure": 1017,
+        "humidity": 73
+    },
+    "visibility": 8665,
+    "wind": {
+        "speed": 0.89,
+        "deg": 291,
+        "gust": 3.58
+    },
+    "clouds": {
+        "all": 100
+    },
+    "dt": 1664301959,
+    "sys": {
+        "type": 2,
+        "id": 2011499,
+        "country": "BR",
+        "sunrise": 1664268387,
+        "sunset": 1664312347
+    },
+    "timezone": -10800,
+    "id": 3460834,
+    "name": "Itajubá",
+    "cod": 200
+}
