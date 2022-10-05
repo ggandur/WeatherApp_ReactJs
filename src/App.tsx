@@ -23,42 +23,40 @@ function App() {
       console.log('Enter was pressed', newFinalUrl, event.target.value)
     }
   }
-  
-  const getByLocation = async () => {
-    setLoading(true)
-  
-    try {
-      await axios.get(finalUrl).then((response) => {
-        //const responseAsJson = JSON.parse(response.data)
-        setData(response.data)
-        console.log('Resposta', response.data)
-      })
-    } catch (e) {
-      console.log(e)
-    }
-  
-    setLoading(false)
-  }
+
+  // const getByLocation = async () => {
+  //   setLoading(true)
+
+  //   try {
+  //     await axios.get(finalUrl).then((response) => {
+  //       setData(response.data)
+  //       console.log('Resposta', response.data)
+  //     })
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+
+  //   setLoading(false)
+  // }
 
   function getCoordinates() {
     navigator.geolocation.getCurrentPosition(function (position) {
       console.log("Latitude is :", position.coords.latitude);
       console.log("Longitude is :", position.coords.longitude);
-      
+
       const coordinates = `lat=${position.coords.latitude}&lon=${position.coords.longitude}`
       const newFinalUrl = url + coordinates + appId
-      
+
       setFinalUrl(newFinalUrl)
     })
   }
 
-  // useEffect(() => {
-  //   console.log('Final url updated', finalUrl)
-  //   getByLocation(setLoading, finalUrl, setFinalUrl)
-  // }, [finalUrl])
   useEffect(() => {
-    getByLocation()
+    finalUrl && getByLocation(setLoading, finalUrl, setData)
   }, [finalUrl])
+  // useEffect(() => {
+  //   getByLocation()
+  // }, [finalUrl])
 
   return (
     <HomePage
